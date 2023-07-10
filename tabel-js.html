@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		table {
+			width: 500px;
+			margin: 0 auto;
+			border: 1px solid black;
+		}
+
+		.inp {
+			margin: 0 auto;
+
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<body>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Eng</th>
+				<th>Phy</th>
+				<th>Maths</th>
+				<th>Che</th>
+
+			</tr>
+			<tr>
+				<td><input type="text" id="aname"></td>
+				<td><input type="text" id="am"></td>
+				<td><input type="text" id="aj"></td>
+				<td><input type="text" id="ad"></td>
+				<td><input type="text" id="an"></td>
+			</tr>
+			<tr>
+				<td class="inp"><input type="submit" value="Add To Table" onclick="Sub()"></td>
+			</tr>
+		</table>
+		<br>
+
+
+		<br>
+		<table border="1" id="TableScore">
+			<tr>
+				<th>Name</th>
+				<th>Eng</th>
+				<th>Phy</th>
+				<th>Maths</th>
+				<th>Che</th>
+				<th>Total</th>
+				<th>Average</th>
+				<th>Pass Or Fail</th>
+				<th>Grade</th>
+
+			</tr>
+
+		</table>
+		<script type="text/javascript">
+			function Sub() {
+				var n = (document.getElementById('aname').value);
+				var k = parseInt(document.getElementById('am').value);
+				var r = parseInt(document.getElementById('aj').value);
+				var e = parseInt(document.getElementById('ad').value);
+				var v = parseInt(document.getElementById('an').value);
+
+				if ((k >= 0 && k <= 100) && (r >= 0 && r <= 100) && (e >= 0 && e <= 100) && (v >= 0 && v <= 100)) {
+
+
+					sum = k + r + e + v;
+					avg = sum / 4;
+
+
+
+					var newTable = document.getElementById('TableScore');
+					var row = newTable.insertRow(-1);
+					var cell9 = row.insertCell(0);
+					var cell8 = row.insertCell(0);
+					var cell7 = row.insertCell(0);
+					var cell6 = row.insertCell(0);
+					var cell5 = row.insertCell(0);
+					var cell4 = row.insertCell(0);
+					var cell3 = row.insertCell(0);
+					var cell2 = row.insertCell(0);
+					var cell1 = row.insertCell(0);
+
+
+
+					cell1.innerHTML = n;
+					cell2.innerHTML = k;
+					cell3.innerHTML = r;
+					cell4.innerHTML = e;
+					cell5.innerHTML = v;
+					cell6.innerHTML = sum;
+					cell7.innerHTML = avg;
+
+					if (avg >= 33) {
+						cell8.innerHTML = "<font color=green>Pass</font>";
+						if (avg >= 80) {
+							cell9.innerHTML = "<font color=green>A</font>";
+						}
+						else if (avg >= 60) {
+							cell9.innerHTML = "<font color=green>B</font>";
+						}
+						else if (avg >= 40) {
+							cell9.innerHTML = "<font color=green>C</font>";
+						}
+						else if (avg >= 33) {
+							cell9.innerHTML = "<font color=green>D</font>";
+						}
+
+					} else {
+						cell8.innerHTML = "<font color=red>Fail</font>";
+					}
+
+
+				} else {
+					alert("Please Enter valid marks!");
+				}
+			}
+		</script>
+	</body>
+</body>
+
+</html>
