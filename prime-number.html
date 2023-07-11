@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="printPrimes()"> Print</button>
+    <div id="primeNumber"></div>
+    <script>
+
+        // let count = 0
+        // let i, j
+        // for ( let j = 2; j <= 100; j++) {
+
+        //     for  ( let i = 1; i <= j; i++) {
+        //         if (j % i == 0)
+        //             count++
+
+        //     }
+
+        //     if (count == 2)
+
+        //         console.log(j)
+        //     count = 0
+
+        // }
+
+
+
+        function printPrimes() {
+
+            let count = 0;
+            let i, j
+            let primeNumbers = [];
+
+            
+            for (j = 2; j <= 100; j++) {
+                for (i = 2; i <= j; i++) {
+                   
+                    if (j % i == 0)
+                        count++
+                }
+                if (count == 1) {
+                    console.log(j)
+                    primeNumbers.push(j)
+                }
+                count = 0
+            }
+            primeNumbers.forEach((el) => {
+                document.getElementById('primeNumber').append(el + ',');
+            })
+
+            // console.log(primeNumbers);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
