@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        background-color: linear;
+        margin-top: 100px;
+      }
+
+      .card {
+        border: 3px solid black;
+        padding: 50px;
+        border-radius: 20px;
+        height: 650px;
+      }
+
+      .form-data {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      button {
+        font-size: 30px;
+        border-radius: 20px;
+        color: red;
+        padding: 10px 15px;
+      }
+      .form-data input {
+        font-size: 20px;
+        border-radius: 20px;
+        padding: 15px 25px;
+      }
+      .city,
+      .temp {
+        text-align: center;
+        color: red;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="form-data">
+        <input type="text" placeholder="Enter City Name" id="search" />
+        <button onclick="myFunction()">search</button>
+      </div>
+      <div class="city"></div>
+      <div class="temp"></div>
+    </div>
+
+    <script>
+      async function myFunction() {
+        let inp = document.getElementById("search").value;
+        let apiKeys = "12b9a1319cfecd112b0bbdcb988a70ec";
+
+        let fetchData = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${inp}&appid=${apiKeys}`
+        );
+        let res = await fetchData.json();
+        console.log(res);
+
+        let cityName = document.querySelector(".city").innerHTML = res.name;
+        let tem = document.querySelector(".temp").innerHTML = Math.round(res.main.temp) +"°C";
+        console.log(cityName);
+        console.log(tem);
+
+        console.log(res);
+      }
+    </script>
+  </body>
+</html>

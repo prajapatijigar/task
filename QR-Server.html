@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-size: 20px;
+        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        background-color: rgba(228, 245, 41, 0.493);
+        border: 3px solid black;
+        padding: 50px 20px;
+        display: flex;
+        gap: 20px;
+        width: 400px;
+        flex-direction: column;
+        align-items: center;
+      }
+      #inp{
+        padding: 10px 0 ;
+        border: none;
+        padding: 10px;
+      }
+      .qr-img{
+        width: 200px;
+        height: 200px;
+        text-align: center;
+      }
+      .qr-img img{
+          width: 100%;
+          height: 100%;
+          display: none;
+      }
+      .qr-btn{
+        border: none;
+        padding: 15px 20px;
+        background-color: rgb(218, 136, 14);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <input type="text" placeholder="Enter Name" id="inp" />
+      <div class="qr-img">
+        <img  
+        class="img"
+          src=""
+        />
+      </div>
+      <button class="qr-btn">QR Generate</button>
+    </div>
+
+    <script>
+       
+      let inp = document.getElementById("inp")
+      let qrVal = document.querySelector(".qr-btn")
+       let imgVal = document.querySelector(".img")     
+    
+       qrVal.addEventListener("click", () => {
+            imgVal.style.display = "block"
+            imgVal.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inp.value}.com`
+       })
+         
+    </script>
+  </body>
+</html>

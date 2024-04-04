@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        width: 600px;
+        height: 600px;
+        border: 3px solid black;
+        margin-top: 20px;
+      }
+      .answer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .que {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .btn {
+        margin-bottom: 10px;
+        width: 80%;
+        text-align: center;
+        border: none;
+        padding: 10px 15px;
+      }
+      .click-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .next-btn {
+        border: none;
+        padding: 10px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="question-bank">
+        <div class="question">
+          <h2 class="que">question</h2>
+        </div>
+        <div class="answer">
+          <button class="btn">A</button>
+          <button class="btn">B</button>
+          <button class="btn">C</button>
+          <button class="btn">D</button>
+        </div>
+        <div class="click-btn">
+          <button class="next-btn">next</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let question = document.querySelector(".que");
+      let allBtn = document.querySelectorAll(".btn");
+      console.log(allBtn[0]);
+      let next = document.querySelector(".next-btn"); // corrected selector
+      let i = 1;
+
+      let arr = [
+        {
+          que: "what is your name",
+          ans: [
+            { Option: "jigar", corrected: true },
+            { Option: "manan", corrected: false },
+            { Option: "kasamali", corrected: false },
+            { Option: "pratik", corrected: false },
+          ],
+        },
+        {
+          que: "who is current prime minister",
+          ans: [
+            { Option: "naredra modi", corrected: true },
+            { Option: "aditya nath", corrected: false },
+            { Option: "amitshah", corrected: false },
+            { Option: "rahul gandhi", corrected: false },
+          ],
+        },
+        {
+          que: "how  many color in indian flag",
+          ans: [
+            { Option: "1", corrected: false },
+            { Option: "2", corrected: false },
+            { Option: "3", corrected: true },
+            { Option: "5", corrected: false },
+          ],
+        },
+        {
+          que: "What is the capital of India?",
+          ans: [
+            { Option: "rajasthan", corrected: false },
+            { Option: "New Delhi", corrected: true },
+            { Option: "hariyana", corrected: false },
+            { Option: "mehsana", corrected: false },
+          ],
+        },
+      ];
+
+      console.log(arr);
+
+      let length = arr[0].que.length;
+      // let length2 = arr[].ans.length;
+       
+      
+
+      next.addEventListener("click", () => {
+        if (i >= length) {
+          i = length - 1;
+        }
+        
+       allBtn.forEach((button, index) => {
+          button.addEventListener("click", (e) => {
+            let ansData = arr[i-1].ans[index].corrected;
+            if (ansData) {
+              button.style.backgroundColor = "green";
+            } else {
+              button.style.backgroundColor = "red";
+            }
+          });
+        });
+
+        allBtn.forEach((button) => {
+            button.style.backgroundColor = ""
+        })
+
+        
+
+        question.innerHTML = `${i}.${arr[i].que}`;
+        allBtn[0].innerHTML = `${arr[i].ans[0].Option}`;
+        allBtn[1].innerHTML = `${arr[i].ans[1].Option}`;
+        allBtn[2].innerHTML = `${arr[i].ans[2].Option}`;
+        allBtn[3].innerHTML = `${arr[i].ans[3].Option}`;
+
+        // allBtn[i].innerHTML = `${arr2[i]}`; // directly assign the value
+        // allBtn[i].innerHTML = `${arr2[i]}`; // directly assign the value
+        // allBtn[i].innerHTML = `${arr2[i]}`; // directly assign the value
+        // allBtn[i].innerHTML = `${arr2[i]}`; // directly assign the value
+
+        console.log(allBtn);
+        i++;
+      });
+    </script>
+  </body>
+</html>

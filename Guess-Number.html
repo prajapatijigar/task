@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="guess">
+        <button onclick="guessNumber()">click</button>
+
+    <script>
+        let attempt = 0;
+        let randomNum = Math.floor(Math.random() * 100) + 1;
+         
+                   function guessNumber(){
+                        const val = parseInt(document.getElementById('guess').value);
+                           console.log(val);  
+                            attempt++ ;
+
+                          if (val === randomNum) {
+                              console.log(`Your  number is correct! It took you ${attempt} attempts.`);
+                            }else if (val < 0 || val > 100) {
+                                console.log("Your number is invalid");
+                            } else if (val < randomNum) {
+                                console.log(`Your number ${val} is lower`);
+                            } else if (val > randomNum) {
+                                console.log(`Your number ${val} is higher`);
+                            } 
+                        }
+               guessNumber();
+    </script>
+
+</body>
+</html>

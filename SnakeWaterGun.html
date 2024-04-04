@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button class="snake" onclick="snakeFunc()">snake</button>
+    <button class="water" onclick="waterFunc()">water</button>
+    <button class="gun" onclick="gunFunc()">gun</button>
+    
+
+    <script>
+              
+         let snakeVal = document.getElementsByClassName("snake");
+         let waterVal = document.getElementsByClassName("water");
+         let gunVal = document.getElementsByClassName("gun");
+         let storeData = []
+         
+         let arr = ["snake", "water", "gun"]
+            
+         let randomNum = Math.floor(Math.random()*arr.length);   
+          console.log(randomNum);
+          
+          // console.log(arr[0],arr[1],arr[2]);
+           
+
+     //     function snakeFunc(){
+                
+     //      storeData.push(arr[randomNum])
+            
+     //      storeData.forEach((item) => {
+     //             console.log(item);
+     //      })
+             
+           
+     //     }
+     //     function waterFunc(){
+     //          console.log("water");
+     //     }
+     //     function gunFunc(){
+     //          console.log("gun");
+     //     }
+         
+          
+
+    </script>
+
+</body>
+</html>
