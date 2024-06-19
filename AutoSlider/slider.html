@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .slides {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+      }
+      .slides img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .slides img.active{
+             display:  block;
+        }
+         .controls{
+           display: flex;
+           flex-direction: row;
+           position: relative;
+           top: -34px;
+           gap: 10px;
+         }
+         .dots{
+           padding: 10px;
+           border-radius: 50%;
+           background-color: white;
+         }
+         .dots.active{
+           background-color:  blue;
+         }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slides">
+        <img src="./images/innerbanner1.jpg" width="100%"  alt="" />
+        <img src="./images/innerbanner2.jpg" width="100%"  alt="" />
+        <img src="./images/innerbanner3.jpg" width="100%"  alt="" />
+        <img src="./images/innerbanner4.jpg" width="100%"  alt="" />
+        <img src="./images/innerbanner5.jpg" width="100%"  alt="" />
+        <img src="./images/innerbanner6.jpg" width="100%"  alt="" />
+      </div>
+      <div class="controls">
+         <div class="dots"></div>
+         <div class="dots"></div>
+         <div class="dots"></div>
+         <div class="dots"></div>
+         <div class="dots"></div>
+         <div class="dots"></div>
+
+      </div>
+    </div>
+
+    <script>
+        
+          
+
+           
+         
+         
+       
+          
+        
+        let  slideIndex = 0;
+        let slides = document.querySelectorAll(".slides img")
+        let dotsVal = document.querySelectorAll(".controls .dots")
+        //  console.log(dotsVal); 
+
+       setInterval(() => {
+           slides[slideIndex].classList.remove("active")
+           dotsVal[slideIndex].classList.remove("active")
+             slideIndex ++
+            if( slideIndex >= slides.length ){
+                 slideIndex = 0
+            }
+            slides[slideIndex].classList.add("active")
+            dotsVal[slideIndex].classList.add("active")
+            
+       }, 2000);
+          
+
+
+    </script>
+  </body>
+</html>
